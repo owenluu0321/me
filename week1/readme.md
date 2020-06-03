@@ -1,3 +1,3 @@
 TODO: Reflect on what you learned this week and what is still unclear.
 
-write somethign better here
+I understand that computational programming is such a power and useful tool and its application within the real time world. Personally thinking, it is obviously gonna be a milestone during my studies of uni, even the industry i most likely to work with in the rest of the life. I am only a drop of water in the ocean, there courtless things that i need to learn and achieve. Such as the structure of coding, different types of commands and how to apply these skills and knowledges into complex real world questions/scenarios etc. And finally, the first class today is bit of a headache for me, probably cuz it is the first day of the term??? Anyway! Try my best all the time and pass the course hopefully lol...
