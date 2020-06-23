@@ -25,7 +25,63 @@ def advancedGuessingGame():
     Remember to think modular. Try to keep your functions small and single
     purpose if you can!
     """
+    print("Guessing game started!")
+    print("A number higher than _ ?")
+    a = False
+    while a == False:
+      b1 = False
+      while b1 != True:
+        lowerBound = input("Enter a lower Bound: ")
+        try:
+          int(lowerBound)
+          b1 = True
+        except ValueError:
+          print("integer only")
+          b1 = False
+      b2 = False
+      while b2 != True:
+        upperBound = input("Enter a upper Bound: ")
+        if upperBound > lowerBound:
+          try: 
+            int(upperBound)
+            a = True
+            b2 = True
+          except ValueError:
+            print("integer only")
+            upperBound = input("Enter a upper Bound: ")
+            b2 = False
+        else:
+            print("lowerbound must be lower than upperbound")
+            b2 = False
+      print("cool, a number between" + str(lowerBound) + "and" + str(upperBound))
 
+    upperBound = int(upperBound)
+    lowerBound = int(lowerBound)
+    actualnumber = random.randint(lowerBound, upperBound)
+
+    guessed = False
+    while not guessed:
+      answer = False
+      while answer != True:
+        guessednumber = input("Guess a number:")
+        try:
+          int(guessednumber)
+          answer = True
+        except ValueError:
+            answer = False
+            print("integer only pls")
+      print("You guessed {},".format(guessednumber),)
+      if int(guessednumber) == actualnumber:
+        print("It was {}!".format(actualnumber))
+        guessed = True
+      elif int(guessednumber) < actualnumber and int(guessednumber) > lowerBound:
+        print("oops too small")
+      elif int(guessednumber) > actualnumber and int(guessednumber) < upperBound:
+        print("aha too big mate")
+      elif int(guessednumber) < lowerBound:
+        print("what the heck are you doing")
+      elif int(guessednumber) > upperBound:
+        print("what the heck are you doing")
     return "You got it!"
     # the tests are looking for the exact string "You got it!". Don't modify that!
 

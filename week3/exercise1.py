@@ -12,7 +12,12 @@ def loop_ranger(start, stop=None, step=1):
     The look up the docs for range(), you can answer this with just the range 
     function, but we'd like you to do it the long way, probably using a loop.
     """
-    return None
+    list = []
+    a = start
+    while a  < stop:
+        list.append(a)
+        a = a + step
+    return list
 
 
 def lone_ranger(start, stop, step):
@@ -20,7 +25,10 @@ def lone_ranger(start, stop, step):
 
     Look up the docs for range() and wrap it in a 1:1 way
     """
-    return None
+    lista = []
+    for a in range(start, stop, step):
+        lista.append(a)
+    return lista
 
 
 def two_step_ranger(start, stop):
@@ -29,7 +37,10 @@ def two_step_ranger(start, stop):
     Sometimes you want to hide complexity.
     Make a range function that always has a step size of 2
     """
-    return None
+    listb = []
+    for b in range(start, stop, 2):
+        listb.append(b)
+    return listb
 
 
 def stubborn_asker(low, high):
@@ -40,7 +51,17 @@ def stubborn_asker(low, high):
 
     Look up the docs for input
     """
-    return None
+    x = int(input("enter a number: "))
+    while not (low < x < high):
+        if x < low:
+            print("too low")
+        if x > high:
+            print("too high")
+        if x > low and x < high:
+            print("You got it")
+            return x
+        x = int(input("enter a number"))
+    return x
 
 
 def not_number_rejector(message):
@@ -50,7 +71,10 @@ def not_number_rejector(message):
     (e.g. "cow", "six", "8!") then throw it out and ask for an actual number.
     When you do get a number, return it.
     """
-    return None
+    try:
+        return int(message)
+    except:
+        return message
 
 
 def super_asker(low, high):
@@ -61,7 +85,21 @@ def super_asker(low, high):
     Try to call at least one of the other functions to minimise the
     amount of code.
     """
-    return None
+    x = not_number_rejector(input("info"))
+    if type(x) == int:
+        while not (low < x < high):
+            if x < low:
+                print("too low")
+            if x > high:
+                print("too high")
+            if x > low and x < high:
+                print("You got it")
+                return x
+            x = not_number_rejector(input("info"))
+    else:
+        print("Non int")
+        x = not_number_rejector(input("info"))
+    return x
 
 
 if __name__ == "__main__":
@@ -71,12 +109,12 @@ if __name__ == "__main__":
     # code is robust to the situations that you'll see in action.
     # NOTE: because some of these take user input you can't run them from
 
-    print("\nloop_ranger", loop_ranger(1, 10, 2))
-    print("\nlone_ranger", lone_ranger(1, 10, 3))
-    print("\ntwo_step_ranger", two_step_ranger(1, 10))
-    print("\nstubborn_asker")
-    stubborn_asker(30, 45)
-    print("\nnot_number_rejector")
-    not_number_rejector("Enter a number: ")
+    # print("\nloop_ranger", loop_ranger(1, 10, 2))
+    # print("\nlone_ranger", lone_ranger(1, 10, 3))
+    # print("\ntwo_step_ranger", two_step_ranger(1, 10))
+    # print("\nstubborn_asker")
+    # stubborn_asker(30, 45)
+    # print("\nnot_number_rejector")
+    # not_number_rejector("Enter a number: ")
     print("\nsuper_asker")
     super_asker(33, 42)
