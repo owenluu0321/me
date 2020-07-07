@@ -117,6 +117,7 @@ def pokedex(low=1, high=5):
         if r.status_code is 200:
             the_json = json.loads(r.text)
             listp.append(the_json)
+
     for i in listp:
         height_atm = i["height"]
         if height_atm > tallest:
@@ -124,6 +125,7 @@ def pokedex(low=1, high=5):
             name = i["name"]
             weight = i["weight"]
             height = i["height"]
+
     return {"name": name, "weight": weight, "height": height}
 
 
@@ -141,7 +143,18 @@ def diarist():
          the test will have nothing to look at.
     TIP: this might come in handy if you need to hack a 3d print file in the future.
     """
-    pass
+    file1 = LOCAL + "/Trispokedovetiles(laser).gcode"
+    lasers = open(file1, "r")
+    numberct = 0
+    for line in lasers:
+        if "M10 P1" in line:
+            numberct += 1
+    print(numberct)
+
+    file2 = LOCAL + "/lasers.pew"
+    lasers = open(file2, "w"
+    lasers.write(int(numberct))
+    lasers.close()
 
 
 if __name__ == "__main__":
