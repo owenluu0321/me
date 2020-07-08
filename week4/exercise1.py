@@ -143,7 +143,7 @@ def diarist():
          the test will have nothing to look at.
     TIP: this might come in handy if you need to hack a 3d print file in the future.
     """
-    
+
     file1 = open(LOCAL + "/Trispokedovetiles(laser).gcode" , "r")
     numberct = 0
     for line in file1:
@@ -151,8 +151,8 @@ def diarist():
             numberct += 1
 
     lasers = open(LOCAL + "/lasers.pew" , "w")
-    lasers.write(str(numberct))
-    lasers.close
+    lasers.write(int(numberct))
+    lasers.close()
 
 
 if __name__ == "__main__":
