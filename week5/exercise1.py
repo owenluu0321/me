@@ -49,11 +49,13 @@ def do_bunch_of_bad_things():
 # return a list of countdown messages, much like in the bad function above.
 # It should say something different in the last message.
 def countdown(message, start, stop, completion_message):
-    pass
+    lista = []
+    for i in range(start, stop):
+        lista.append(str(message) + i)
+    return lista
 
 
 # TRIANGLES
-
 # This should be a series of functions that are ultimatly used by
 # triangle_master
 # It should eventually return a dictionary of triangle facts. It should
@@ -62,32 +64,44 @@ def countdown(message, start, stop, completion_message):
 # The stub functions are made for you, and each one is tested, so this should
 # hand hold quite nicely.
 def calculate_hypotenuse(base, height):
-    pass
+    calculate_hypotenuse = (base**2 + height**2)**0.5
+    return calculate_hypotenuse
 
 
 def calculate_area(base, height):
-    pass
+    calculate_area = base * height * 0.5
+    return calculate_area
 
 
 def calculate_perimeter(base, height):
-    pass
+    hy = (base**2 + height**2)**0.5
+    calculate_perimeter = base + height + hy
+    return calculate_perimeter
 
 
 def calculate_aspect(base, height):
-    pass
+    if base >= height:
+        calculate_aspect = "wide"
+    if base <= height:
+        calculate_aspect = "tall"
+    if base == height:
+        calculate_aspect = "equal"
+    return calculate_aspect
+
 
 
 # Make sure you reuse the functions you've already got
 # Don't reinvent the wheel
 def get_triangle_facts(base, height, units="mm"):
+  
     return {
-        "area": None,
-        "perimeter": None,
-        "height": None,
-        "base": None,
-        "hypotenuse": None,
-        "aspect": None,
-        "units": None,
+        'area': calculate_area,
+        'aspect': calculate_aspect,
+        'base': base,
+        'height': height,
+        'hypotenuse': calculate_hypotenuse,
+        'perimeter': calculate_perimeter,
+        'units': units,
     }
 
 
