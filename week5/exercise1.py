@@ -32,17 +32,17 @@ def do_bunch_of_bad_things():
     print("Let's go!")
 
     triangle = {"base": 3, "height": 4}
-    triangle["hypotenuse"] = triangle["base"] ** 2 + triangle["height"] ** 2
+    triangle["hypotenuse"] = (triangle["base"] ** 2 + triangle["height"] ** 2)** 0.5
     print("area = " + str((triangle["base"] * triangle["height"]) / 2))
     print("side lengths are:")
     print("base: {}".format(triangle["base"]))
     print("height: {}".format(triangle["height"]))
     print("hypotenuse: {}".format(triangle["hypotenuse"]))
 
-    another_hyp = 5 ** 2 + 6 ** 2
+    another_hyp = (5 ** 2 + 6 ** 2)** 0.5
     print(another_hyp)
 
-    yet_another_hyp = 40 ** 2 + 30 ** 2
+    yet_another_hyp = (40 ** 2 + 30 ** 2)** 0.5
     print(yet_another_hyp)
 
 
@@ -50,10 +50,10 @@ def do_bunch_of_bad_things():
 # It should say something different in the last message.
 def countdown(message, start, stop, completion_message):
     lista = []
-    for i in range(start, stop):
-        lista.append(str(message) + i)
+    for i in range(start, stop-1, -1):
+        print(message,str(i))
+    print(completion_message)
     return lista
-
 
 # TRIANGLES
 # This should be a series of functions that are ultimatly used by
@@ -64,44 +64,49 @@ def countdown(message, start, stop, completion_message):
 # The stub functions are made for you, and each one is tested, so this should
 # hand hold quite nicely.
 def calculate_hypotenuse(base, height):
-    calculate_hypotenuse = (base**2 + height**2)**0.5
-    return calculate_hypotenuse
+    hy = (base**2 + height**2)**0.5
+    return hy
 
 
 def calculate_area(base, height):
-    calculate_area = base * height * 0.5
-    return calculate_area
+    area = base * height * 0.5
+    return area
 
 
 def calculate_perimeter(base, height):
-    hy = (base**2 + height**2)**0.5
-    calculate_perimeter = base + height + hy
-    return calculate_perimeter
+    peri = base + height + calculate_hypotenuse(base, height)
+    return peri
 
 
 def calculate_aspect(base, height):
-    if base >= height:
-        calculate_aspect = "wide"
-    if base <= height:
-        calculate_aspect = "tall"
     if base == height:
-        calculate_aspect = "equal"
-    return calculate_aspect
+        aspect = "equal"
+    if base > height:
+        aspect = "wide"
+    if base < height:
+        aspect = "tall"
+    return aspect
 
 
 
 # Make sure you reuse the functions you've already got
 # Don't reinvent the wheel
 def get_triangle_facts(base, height, units="mm"):
-  
+
+    facts = {}
+    facts["hypotenuse"] = calculate_hypotenuse(base, height)
+    facts["area"] = calculate_area(base, height)
+    facts["perimeter"] = calculate_perimeter(base, height)
+    facts["aspect"] = calculate_aspect(base, height)
+
     return {
-        'area': calculate_area,
-        'aspect': calculate_aspect,
-        'base': base,
-        'height': height,
-        'hypotenuse': calculate_hypotenuse,
-        'perimeter': calculate_perimeter,
-        'units': units,
+        "area": facts['area'],
+        "perimeter": facts['perimeter'],
+        "height": height,
+        "base": base,
+        "hypotenuse": facts['hypotenuse'],
+        "aspect": facts['aspect'],
+        "units": units,
     }
 
 
