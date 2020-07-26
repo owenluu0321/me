@@ -159,14 +159,23 @@ def tell_me_about_this_right_triangle(facts_dictionary):
 
     facts = pattern.format(**facts_dictionary)
 
+    if facts_dictionary['aspect'] == "tall":
+        return facts + tall.format(**facts_dictionary)
+    elif facts_dictionary['aspect'] == "wide":
+        return facts + wide.format(**facts_dictionary)
+    elif facts_dictionary['aspect'] == "equal":
+        return facts + equal.format(**facts_dictionary)
+
 
 def triangle_master(base, height, return_diagram=False, return_dictionary=False):
+    fc = get_triangle_facts(base, height)
+    dia = tell_me_about_this_right_triangle(fc)
     if return_diagram and return_dictionary:
-        return None
+        return {"diagram": dia, "facts": fc}
     elif return_diagram:
-        return None
+        return dia
     elif return_dictionary:
-        return None
+        return fc
     else:
         print("You're an odd one, you don't want anything!")
 
@@ -175,11 +184,8 @@ def wordy_pyramid(api_key):
     import requests
 
     baseURL = (
-        "http://api.wordnik.com/v4/words.json/randomWords?"
-        "api_key={api_key}"
-        "&minLength={length}"
-        "&maxLength={length}"
-        "&limit=1"
+        "https://us-central1-waldenpondpress.cloudfunctions.net/"
+        "give_me_a_word?wordlength={length}"
     )
     pyramid_list = []
     for i in range(3, 21, 2):
