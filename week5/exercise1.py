@@ -208,12 +208,31 @@ def wordy_pyramid(api_key):
 
 
 def get_a_word_of_length_n(length):
-    pass
+    import requests
+    link = "https://us-central1-waldenpondpress.cloudfunctions.net/give_me_a_word?wordlength={length}"
+    r = requests.get(link)
+    wordlist = {}
+    try:
+        length = int(length)
+        if length > 0:
+            wordlist["word"] = "b" * length
+            word = wordlist['word']
+            return word
+        else:
+            pass
+    except Exception:
+        pass
 
 
 def list_of_words_with_lengths(list_of_lengths):
-    pass
-
+    length = len(list_of_lengths)
+    words_list = {}
+    word_list = []
+    for i in range(length):
+        a = list_of_lengths[i]
+        words_list['word'] = 'a' * a
+        word_list.append(words_list['word'])
+    return word_list
 
 if __name__ == "__main__":
     do_bunch_of_bad_things()
