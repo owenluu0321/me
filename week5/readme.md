@@ -1,1 +1,2 @@
 TODO: Reflect on what you learned this week and what is still unclear.
+it took me a while to understand how does dictionary work. The way which we could use other previous user defined functions in our script is making the job much easier! Also exercise 2 of this week is probably to difficult for me, i am struggling with finding the pattern in that question or i could't really understand it. recursion is a huge problem for me at the moment.

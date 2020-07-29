@@ -1,1 +1,2 @@
 TODO: Reflect on what you learned this week and what is still unclear.
+procastination from online courses ewwwwwww... i really need to start working on my data project this week. i have got some interesting ideas and useful dataset... probably gotta do a analysis about trend of international airlines' passenger quantity in this year tho. To see how the covid has changed the avation industry.
