@@ -1,1 +1,2 @@
 TODO: Reflect on what you learned this week and what is still unclear.
+after i submitted all the weekly exercises, i started to mainly focus on my data project since this week. Pandas is super convinent and easy to create a graph with a set of given data set, but i feel like the language works differently within it compared to those weekly exercises i have done within the term earlier. So i still need to research and discover deeper into it, accept and adapt the differences between them.
